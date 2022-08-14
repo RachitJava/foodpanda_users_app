@@ -1,8 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:foodpanda_users_app/assistantMethods/assistant_methods.dart';
 import 'package:foodpanda_users_app/authentication/auth_screen.dart';
 import 'package:foodpanda_users_app/global/global.dart';
+import 'package:foodpanda_users_app/models/sellers.dart';
+import 'package:foodpanda_users_app/widgets/sellers_design.dart';
 import 'package:foodpanda_users_app/widgets/my_drawer.dart';
+import 'package:foodpanda_users_app/widgets/progress_bar.dart';
 
 
 
@@ -47,6 +53,14 @@ class _HomeScreenState extends State<HomeScreen>
     "slider/26.jpg",
     "slider/27.jpg",
   ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    clearCartNow(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,8 +79,9 @@ class _HomeScreenState extends State<HomeScreen>
               )
           ),
         ),
-        title: Text(
-          sharedPreferences!.getString("name")!,
+        title: const Text(
+          "iFood",
+          style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
         ),
         centerTitle: true,
       ),
@@ -88,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
                     enableInfiniteScroll: true,
                     reverse: false,
                     autoPlay: true,
-                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayInterval: const Duration(seconds: 2),
                     autoPlayAnimationDuration: const Duration(milliseconds: 500),
                     autoPlayCurve: Curves.decelerate,
                     enlargeCenterPage: true,
@@ -97,15 +112,50 @@ class _HomeScreenState extends State<HomeScreen>
                   items: items.map((index) {
                     return Builder(builder: (BuildContext context){
                       return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 1.0),
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 1.0),
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Image.asset(
+                              index,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       );
                     });
                   }).toList(),
                 ),
               ),
-
             ),
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection("sellers")
+                .snapshots(),
+            builder: (context, snapshot)
+            {
+              return !snapshot.hasData
+                  ? SliverToBoxAdapter(child: Center(child: circularProgress(),),)
+                  : SliverStaggeredGrid.countBuilder(
+                      crossAxisCount: 1,
+                      staggeredTileBuilder: (c) => StaggeredTile.fit(1),
+                      itemBuilder: (context, index)
+                      {
+                        Sellers sModel = Sellers.fromJson(
+                          snapshot.data!.docs[index].data()! as Map<String, dynamic>
+                        );
+                        //design for display sellers-cafes-restuarents
+                        return SellersDesignWidget(
+                          model: sModel,
+                          context: context,
+                        );
+                      },
+                      itemCount: snapshot.data!.docs.length,
+                    );
+            },
           ),
         ],
       ),
