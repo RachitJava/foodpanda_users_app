@@ -6,6 +6,8 @@ import 'package:foodpanda_users_app/mainScreens/history_screen.dart';
 import 'package:foodpanda_users_app/mainScreens/home_screen.dart';
 import 'package:foodpanda_users_app/mainScreens/my_orders_screen.dart';
 
+import '../mainScreens/search_screen.dart';
+
 
 class MyDrawer extends StatelessWidget
 {
@@ -114,7 +116,7 @@ class MyDrawer extends StatelessWidget
                   ),
                   onTap: ()
                   {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=> SearchScreen()));
                   },
                 ),
                 const Divider(
