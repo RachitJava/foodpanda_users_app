@@ -51,7 +51,7 @@ class _CartScreenState extends State<CartScreen>
               gradient: LinearGradient(
                 colors: [
                   Colors.cyan,
-                  Colors.amber,
+                  Colors.cyan,
                 ],
                 begin:  FractionalOffset(0.0, 0.0),
                 end:  FractionalOffset(1.0, 0.0),
@@ -61,7 +61,7 @@ class _CartScreenState extends State<CartScreen>
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.clear_all),
+          icon: const Icon(Icons.remove_shopping_cart, size: 24, color: Colors.white),
           onPressed: ()
           {
             clearCartNow(context);
@@ -69,7 +69,7 @@ class _CartScreenState extends State<CartScreen>
         ),
         title: const Text(
           "iFood",
-          style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
+          style: TextStyle(fontSize: 40, fontFamily: "Lato"),
         ),
         centerTitle: true,
         automaticallyImplyLeading: true,
@@ -77,7 +77,7 @@ class _CartScreenState extends State<CartScreen>
           Stack(
             children: [
               IconButton(
-                icon: const Icon(Icons.shopping_cart, color: Colors.cyan,),
+                icon: const Icon(Icons.shopping_cart, size: 40, color: Colors.white),
                 onPressed: ()
                 {
                   print("clicked");
@@ -89,7 +89,7 @@ class _CartScreenState extends State<CartScreen>
                     const Icon(
                       Icons.brightness_1,
                       size: 20.0,
-                      color: Colors.green,
+                      color: Colors.white
                     ),
                     Positioned(
                       top: 3,
@@ -100,7 +100,7 @@ class _CartScreenState extends State<CartScreen>
                           {
                             return Text(
                               counter.count.toString(),
-                              style: const TextStyle(color: Colors.white, fontSize: 12),
+                              style: const TextStyle(color: Colors.black, fontSize: 12),
                             );
                           },
                         ),
@@ -220,7 +220,7 @@ class _CartScreenState extends State<CartScreen>
 
                       if(snapshot.data!.docs.length - 1 == index)
                       {
-                        WidgetsBinding.instance!.addPostFrameCallback((timeStamp)
+                        WidgetsBinding.instance.addPostFrameCallback((timeStamp)
                         {
                           Provider.of<TotalAmount>(context, listen: false).displayTotalAmount(totalAmount.toDouble());
                         });

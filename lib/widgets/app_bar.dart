@@ -29,7 +29,7 @@ class _MyAppBarState extends State<MyAppBar>
             gradient: LinearGradient(
               colors: [
                 Colors.cyan,
-                Colors.amber,
+                Colors.cyan,
               ],
               begin:  FractionalOffset(0.0, 0.0),
               end:  FractionalOffset(1.0, 0.0),
@@ -55,7 +55,7 @@ class _MyAppBarState extends State<MyAppBar>
         Stack(
           children: [
             IconButton(
-              icon: const Icon(Icons.shopping_cart, color: Colors.cyan,),
+              icon: const Icon(Icons.shopping_cart, size: 40.0, color: Colors.white),
               onPressed: ()
               {
                 //send user to cart screen
@@ -68,7 +68,7 @@ class _MyAppBarState extends State<MyAppBar>
                   const Icon(
                     Icons.brightness_1,
                     size: 20.0,
-                    color: Colors.green,
+                    color: Colors.white,
                   ),
                   Positioned(
                     top: 3,
@@ -79,7 +79,7 @@ class _MyAppBarState extends State<MyAppBar>
                         {
                           return Text(
                             counter.count.toString(),
-                            style: const TextStyle(color: Colors.white, fontSize: 12),
+                            style: const TextStyle(color: Colors.black, fontSize: 12),
                           );
                         },
                       ),

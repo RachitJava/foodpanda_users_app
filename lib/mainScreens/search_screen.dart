@@ -36,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen>
               gradient: LinearGradient(
                 colors: [
                   Colors.cyan,
-                  Colors.amber,
+                  Colors.cyan,
                 ],
                 begin:  FractionalOffset(0.0, 0.0),
                 end:  FractionalOffset(1.0, 0.0),

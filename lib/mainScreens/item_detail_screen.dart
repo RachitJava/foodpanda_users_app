@@ -36,7 +36,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
             padding: const EdgeInsets.all(18.0),
             child: NumberInputPrefabbed.roundedButtons(
               controller: counterTextEditingController,
-              incDecBgColor: Colors.amber,
+              incDecBgColor: Colors.cyan,
               min: 1,
               max: 9,
               initialValue: 1,
@@ -64,7 +64,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              widget.model!.price.toString() + " €",
+              widget.model!.price.toString() + " ₹",
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
             ),
           ),
@@ -91,7 +91,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen>
                     gradient: LinearGradient(
                       colors: [
                         Colors.cyan,
-                        Colors.amber,
+                        Colors.cyan,
                       ],
                       begin:  FractionalOffset(0.0, 0.0),
                       end:  FractionalOffset(1.0, 0.0),

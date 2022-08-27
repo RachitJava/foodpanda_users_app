@@ -25,7 +25,7 @@ class _MenusDesignWidgetState extends State<MenusDesignWidget> {
       {
         Navigator.push(context, MaterialPageRoute(builder: (c)=> ItemsScreen(model: widget.model)));
       },
-      splashColor: Colors.amber,
+      splashColor: Colors.cyan,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Container(

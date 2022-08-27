@@ -40,7 +40,7 @@ class _AddressDesignState extends State<AddressDesign>
         Provider.of<AddressChanger>(context, listen: false).displayResult(widget.value);
       },
       child: Card(
-        color: Colors.cyan.withOpacity(0.4),
+        color: Colors.white,
         child: Column(
           children: [
 
@@ -50,7 +50,7 @@ class _AddressDesignState extends State<AddressDesign>
                 Radio(
                   groupValue: widget.currentIndex!,
                   value: widget.value!,
-                  activeColor: Colors.amber,
+                  activeColor: Colors.pink,
                   onChanged: (val)
                   {
                     //provider
@@ -132,7 +132,7 @@ class _AddressDesignState extends State<AddressDesign>
             ElevatedButton(
               child: const Text("Check on Maps"),
               style: ElevatedButton.styleFrom(
-                primary: Colors.black54,
+                primary: Colors.blue,
               ),
               onPressed: ()
               {

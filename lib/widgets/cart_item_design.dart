@@ -89,7 +89,7 @@ class _CartItemDesignState extends State<CartItemDesign> {
                         ),
                       ),
                       const Text(
-                        "€ ",
+                        "₹ ",
                         style: TextStyle(
                             color: Colors.blue,
                             fontSize: 16.0

@@ -25,7 +25,7 @@ class _ItemsDesignWidgetState extends State<ItemsDesignWidget> {
       {
         Navigator.push(context, MaterialPageRoute(builder: (c)=> ItemDetailsScreen(model: widget.model)));
       },
-      splashColor: Colors.amber,
+      splashColor: Colors.cyan,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Container(

@@ -24,7 +24,7 @@ class _SellersDesignWidgetState extends State<SellersDesignWidget> {
       {
         Navigator.push(context, MaterialPageRoute(builder: (c)=> MenusScreen(model: widget.model)));
       },
-      splashColor: Colors.amber,
+      splashColor: Colors.cyan,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Container(
